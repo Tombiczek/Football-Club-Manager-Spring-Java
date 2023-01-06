@@ -21,7 +21,7 @@ public class AppController implements WebMvcConfigurer {
     }
 
     @Controller
-    public class DashboardController
+    public static class DashboardController
     {
         @RequestMapping
                 ("/main"
