@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -21,6 +22,7 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
+        registry.addViewController("/view_club").setViewName("view_club");
     }
 
     @Controller
@@ -61,12 +63,13 @@ public class AppController implements WebMvcConfigurer {
     @Autowired
     private KlubDAO dao;
 
-    @RequestMapping("/")
-    public String viewHomePage(Model model){
+    @RequestMapping("/view_club")
+    public String showHomeForm(Model model){
         List<Klub> listKlub = dao.list();
         model.addAttribute("listKlub", listKlub);
-        return "index";
+        return "/view_club";
     }
+
 }
 
 
