@@ -22,9 +22,9 @@
         <java.version>11</java.version>
 
         <!-- New adding -->
-        <bootstrap.version>4.0.0-2</bootstrap.version>
-        <webjars-locator.version>0.30</webjars-locator.version>
-        <lombok.version>1.18.2</lombok.version>
+        <bootstrap.version>5.2.3</bootstrap.version>
+        <webjars-locator.version>0.45</webjars-locator.version>
+        <lombok.version>1.18.24</lombok.version>
         <commons-validator.version>1.6</commons-validator.version>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>

@@ -4,73 +4,164 @@
     <meta charset="UTF-8"/>
     <title>Login Page</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css} "/>
 
 </head>
+
+<style>
+    img {
+        width: 100%;
+    }
+    .login {
+        height: 1000px;
+        width: 100%;
+        background: radial-gradient(#00bfff, #007fff);
+        position: relative;
+    }
+    .login_box {
+        width: 1050px;
+        height: 600px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 4px 22px -8px #0004;
+        display: flex;
+        overflow: hidden;
+    }
+    .login_box .left {
+        width: 41%;
+        height: 100%;
+        padding: 25px 25px;
+    }
+    .login_box .right {
+        width: 59%;
+        height: 100%;
+    }
+    .left .top_link a {
+        color: #007fff;
+        font-weight: 400;
+    }
+    .left .top_link {
+        height: 20px;
+    }
+    .left .contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        height: 100%;
+        width: 73%;
+        margin: auto;
+    }
+    .left h3 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .left input {
+        border: none;
+        width: 80%;
+        margin: 15px 0px;
+        border-bottom: 1px solid #007fff;
+        padding: 7px 9px;
+        width: 100%;
+        overflow: hidden;
+        background: transparent;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .left {
+        background: linear-gradient(-45deg, #dcd7e0, #fff);
+    }
+    .submit {
+        border: none;
+        padding: 15px 70px;
+        border-radius: 8px;
+        display: block;
+        margin: auto;
+        margin-top: 120px;
+        background: #007fff;
+        color: #fff;
+        font-weight: bold;
+        -webkit-box-shadow: 0px 9px 15px -11px rgba(173, 216, 230, 1);
+        -moz-box-shadow: 0px 9px 15px -11px rgba(173, 216, 230, 1);
+        box-shadow: 0px 9px 15px -11px rgba(173, 216, 230, 1);
+    }
+
+    .right {
+        background: linear-gradient(
+                212.38deg,
+                rgba(0, 191, 255, 0.7) 0%,
+                rgba(64, 224, 208, 0.71) 100%
+        ),
+        url(https://ocdn.eu/pulscms-transforms/1/3izk9kuTURBXy82ZjdiMGZlMi03Yjc2LTQyYTYtYmQzNC03MGY2MWU4YTQ3ZGQuanBlZ5GTBc0DFM0BvN4AAaEwAQ);
+        color: #fff;
+        position: relative;
+    }
+
+    .right .right-text {
+        height: 100%;
+        position: relative;
+        transform: translate(0%, 45%);
+    }
+    .right-text h2 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 500;
+    }
+    .right-text h5 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 19px;
+        font-weight: 400;
+    }
+
+    .right .right-inductor {
+        position: absolute;
+        width: 70px;
+        height: 7px;
+        background: #fff0;
+        left: 50%;
+        bottom: 70px;
+        transform: translate(-50%, 0%);
+    }
+    .top_link img {
+        width: 28px;
+        padding-right: 7px;
+        margin-top: -3px;
+    }
+</style>
+
 <body>
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Login
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-4 mt-5">
-
-            <form method="post" th:action="@{/login}">
-
-                <div class="form-group">
-                    <label for="login">Login:</label>
+<section class="login">
+    <div class="login_box">
+        <div class="left">
+            <div class="top_link"><a href="index"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div>
+            <div class="contact">
+                <form method="post" th:action="@{/login}">
+                    <h3>SIGN IN</h3>
                     <input id="login" type="text" placeholder="Enter login" autocomplete="off" class="form-control" name="username"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password:</label>
                     <input id="password" type="password" placeholder="Enter your password" autocomplete="off" class="form-control" name="password"/>
-                </div>
-
-                <div th:if="${param.error}" style="color:red; margin-bottom:15px">
-                    ERROR: Invalid username or password!
-                </div>
-
-                <button class="btn btn-primary" type="submit" value="Sign In">Login</button>
-            </form>
-
-
-
+                    <button class="btn btn-primary" type="submit" value="Sign In">Login</button>
+                    <div th:if="${param.error}" style="color:red; margin-bottom:15px">
+                        ERROR: Invalid username or password!
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-text">
+                <h2>Ale ciacho</h2>
+                <h5>uhuhu</h5>
+            </div>
+            <div class="right-inductor"><img src="https://lh3.googleusercontent.com/fife/ABSRlIoGiXn2r0SBm7bjFHea6iCUOyY0N2SrvhNUT-orJfyGNRSMO2vfqar3R-xs5Z4xbeqYwrEMq2FXKGXm-l_H6QAlwCBk9uceKBfG-FjacfftM0WM_aoUC_oxRSXXYspQE3tCMHGvMBlb2K1NAdU6qWv3VAQAPdCo8VwTgdnyWv08CmeZ8hX_6Ty8FzetXYKnfXb0CTEFQOVF4p3R58LksVUd73FU6564OsrJt918LPEwqIPAPQ4dMgiH73sgLXnDndUDCdLSDHMSirr4uUaqbiWQq-X1SNdkh-3jzjhW4keeNt1TgQHSrzW3maYO3ryueQzYoMEhts8MP8HH5gs2NkCar9cr_guunglU7Zqaede4cLFhsCZWBLVHY4cKHgk8SzfH_0Rn3St2AQen9MaiT38L5QXsaq6zFMuGiT8M2Md50eS0JdRTdlWLJApbgAUqI3zltUXce-MaCrDtp_UiI6x3IR4fEZiCo0XDyoAesFjXZg9cIuSsLTiKkSAGzzledJU3crgSHjAIycQN2PH2_dBIa3ibAJLphqq6zLh0qiQn_dHh83ru2y7MgxRU85ithgjdIk3PgplREbW9_PLv5j9juYc1WXFNW9ML80UlTaC9D2rP3i80zESJJY56faKsA5GVCIFiUtc3EewSM_C0bkJSMiobIWiXFz7pMcadgZlweUdjBcjvaepHBe8wou0ZtDM9TKom0hs_nx_AKy0dnXGNWI1qftTjAg=w1920-h979-ft" alt=""></div>
         </div>
     </div>
-</div>
-
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-
+</section>
 </body>
 </html>
