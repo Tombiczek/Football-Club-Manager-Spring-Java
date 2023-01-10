@@ -4,104 +4,79 @@
     <meta charset="UTF-8"/>
     <title>Welcome Page</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css} "/>
 
 </head>
 
-<!-- <body th:style="'background: url(/assets/img/img.png) no-repeat center center fixed;'"> -->
-
-
-<!--<style th:inline="text">-->
-<!--    body{-->
-<!--        background: url([[@{/assets/img/img.png}]])-->
-<!--        no-repeat center center fixed;-->
-<!--    }-->
-<!--</style>-->
-
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Main</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/main}">Login</a></a>
-                </li>
-
-            </ul>
-        </div>
+<body>
+<div class="bgimg">
+    <div class="topleft">
+        <p>BDBT Projekt czesc II</p>
     </div>
-</nav>
-
-
-<!--Using images in page    -->
-<!-- <img th:src="@{/assets/img/img.png}" alt="Image" class="img-fluid"> -->
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 mt-5">
-
-            <label style="font-size:30px">Welcome to the home page!</label>
-            <div style="font-size:20px">If you want to login, click <a th:href="@{/main}"><b>here</b></a> or in the
-                upper right corner.
-            </div>
-
-        </div>
+    <div class="middle">
+        <h1>Coming soon!</h1>
+        <a th:href="@{/main}"><b>Login</b></a>
+    </div>
+    <div class="bottomleft">
+        <p>TL i PK</p>
     </div>
 </div>
-
-<!--<div align="center">
-    <h1>Sales Records</h1>
-
-    <table border="1" cellpadding="10">
-
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-            <th>Action</th>
-
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="sale : ${listSale}">
-            <td th:text="${sale.id}">ID</td>
-            <td th:text="${sale.item}">Item Name</td>
-            <td th:text="${sale.quantity}">Quantity</td>
-            <td th:text="${sale.amount}">Amount</td>
-        </tr>
-        </tbody>
-
-    </table>
-
-</div>-->
-
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-
 </body>
+
+<style>
+    /* Set height to 100% for body and html to enable the background image to cover the whole page: */
+    body, html {
+        height: 100%
+    }
+
+    .bgimg {
+        /* Background image */
+        background-image: url(https://ocdn.eu/pulscms-transforms/1/3izk9kuTURBXy82ZjdiMGZlMi03Yjc2LTQyYTYtYmQzNC03MGY2MWU4YTQ3ZGQuanBlZ5GTBc0DFM0BvN4AAaEwAQ);
+        /* Full-screen */
+        height: 100%;
+        /* Center the background image */
+        background-position: center;
+        /* Scale and zoom in the image */
+        background-size: cover;
+        /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+        position: relative;
+        /* Add a white text color to all elements inside the .bgimg container */
+        color: white;
+        /* Add a font */
+        font-family: "Courier New", Courier, monospace;
+        /* Set the font-size to 25 pixels */
+        font-size: 25px;
+    }
+
+    /* Position text in the top-left corner */
+    .topleft {
+        position: absolute;
+        top: 0;
+        left: 16px;
+    }
+
+    /* Position text in the bottom-left corner */
+    .bottomleft {
+        position: absolute;
+        bottom: 0;
+        left: 16px;
+    }
+
+    /* Position text in the middle */
+    .middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    /* Style the <hr> element */
+    hr {
+        margin: auto;
+        width: 40%;
+    }
+</style>
+
 </html>
 
