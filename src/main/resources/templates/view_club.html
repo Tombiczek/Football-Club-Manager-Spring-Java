@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- Table -->
+<table border = "1" cellpadding = "10"> <!-– border – obramowanie, cellpadding – rozmiar komórki -->
+  22.05.2022
+  90
+  <!-- Table header -->
+  <thead> <tr>
+    <th>ID nieruchomości</th> <th>NR księgi wieczystej</th> <th>Stawka od udziału</th> <th>ID spółdzielni</th>
+    <th>ID adresu</th>
+  </tr> </thead>
+  <!-- Table body -->
+  <tbody>
+  <tr th:each = "nieruchomosci : ${listNieruchomosci}">
+    <td th:text = "${nieruchomosci.idNieruchomosci}">ID nieruchomosci</td>
+    <td th:text = "${Nieruchomosci.nrKsiegiWieczystej}">NR księgi wieczystej</td>
+    <td th:text = "${Nieruchomosci.stawkaOdUdzialu}">Stawka od udziału</td>
+    <td th:text = "${Nieruchomosci.idSpoldzielni}">ID spółdzieln</td>
+    <td th:text = "${Nieruchomosci.idAdresu}">ID adresu</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -21,8 +21,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .password("user")
                 .roles("USER")
                 .and()
-                .withUser("admin")
-                .password("admin")
+//                .withUser("admin")
+//                .password("admin")
+                .withUser("q") // na potrzeby testowania aplikacji
+                .password("q")
                 .roles("ADMIN");
     }
 
@@ -38,7 +40,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/main").authenticated()
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
-                .antMatchers("/create_club").access("hasRole('ADMIN')")
                 .antMatchers("/main_user").access("hasRole('USER')")
                 .and()
                 .formLogin()
