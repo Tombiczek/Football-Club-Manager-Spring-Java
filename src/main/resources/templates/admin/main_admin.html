@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Main Admin Page</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css} "/>
 
 </head>
 <body>
@@ -24,13 +24,6 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index}">Home</a>
                 </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Main
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
                             style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
@@ -40,21 +33,6 @@
         </div>
     </div>
 </nav>
-
-
-
-<div class="container">
-    <div class="center">
-            <form method="post" th:action="@{/index}">
-                <div class="multi-button">
-                    <button class="btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout</button>
-                    <button class="btn-secondary">Copy</button>
-                    <button class="btn-primary">Paste</button>
-                </div>
-            </form>
-    </div>
-</div>
-
 
 <style>
     @import url("https://fonts.googleapis.com/css?family=Muli:400,700,800&display=swap");
@@ -180,6 +158,18 @@
         box-shadow: 0 3px #e0c503;
     }
 </style>
+
+<div class="container">
+    <div class="center">
+            <form method="post" th:action="@{/index}">
+                <div class="multi-button">
+                    <button class="btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout</button>
+                    <button class="btn-secondary">Copy</button>
+                    <button class="btn-primary">Paste</button>
+                </div>
+            </form>
+    </div>
+</div>
 
 
 

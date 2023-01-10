@@ -1,5 +1,6 @@
 package bdbt_project_2.SpringApplication;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +9,11 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
+
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/").setViewName("index");
@@ -55,6 +58,15 @@ public class AppController implements WebMvcConfigurer {
     }
 
 
+    @Autowired
+    private KlubDAO dao;
+
+    @RequestMapping("/")
+    public String viewHomePage(Model model){
+        List<Klub> listKlub = dao.list();
+        model.addAttribute("listKlub", listKlub);
+        return "index";
+    }
 }
 
 

@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@194.29.170.4:1521:XE;DB_CLOSE_ON_EXIT=FALSE
+    username: BDBTGRC16
+    password: BDBTGRC16
