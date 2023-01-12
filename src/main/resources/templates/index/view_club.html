@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Klub Manager</title>
+</head>
+<body>
+
+
+<div align="center">
+    <h1>Klub piłkarski</h1>
+
+
+
+    <a href="/new_club">Enter new club</a>
+<!-- Table -->
+    <table border = "1" cellpadding = "10">
+  <!-- Table header -->
+          <thead>
+              <tr>
+                  <th>ID Klubu</th>
+                  <th>Nazwa</th>
+                  <th>Email</th>
+                  <th>Numer Telefonu</th>
+                  <th>Data Założenia</th>
+                  <th>Barwy</th>
+                  <th>ID Adresu</th>
+              </tr>
+          </thead>
+          <!-- Table body -->
+          <tbody>
+            <tr th:each = "Kluby : ${listKlub}">
+                <td th:text = "${klub.idKlubu}">ID Klubu</td>
+                <td th:text = "${klub.nazwa}">Nazwa</td>
+                <td th:text = "${klub.email}">Email</td>
+                <td th:text = "${klub.n_telefonu}">Numer Telefonu</td>
+                <td th:text = "${klub.data_zal}">Data Założenia</td>
+                <td th:text = "${klub.barwy}">Barwy</td>
+                <td th:text = "${klub.idAdresu}">ID adresu</td>
+            </tr>
+          </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
+
+<!--To jest plik, w którym widzimy tabele i mamy guzik do dodawania pozycji lub edytowania-->
+<!--Jest to opcja tylko dla admina-->
+<!--User może tylko zobaczyć tabelę (ale nie wiem, jak to zrobić jeszcze)-->

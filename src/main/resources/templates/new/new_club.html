@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>New Club</title>
+</head>
+<body>
+
+<div align="center">
+  <!-- Page header -->
+  <h1>Enter New Club</h1>
+  <!-- End Line/ new line -->
+  <br/>
+
+  <form action="#" th:action="@{/save}" th:object="${klub}" method="post">
+    <!-- Table -->
+    <table border = "1" cellpadding="10">
+      <tr>
+        <td>ID_Klubu:</td>
+        <td><input type="text" th:field="*{idKlubu}"></td>
+      </tr>
+      <!--Second row-->
+      <tr>
+        <td> Nazwa:</td>
+        <td><input type="text" th:field="*{nazwa}"></td>
+      </tr>
+      <!--Third row-->
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" th:field="*{email}"></td>
+      </tr>
+      <!--Forth row-->
+      <tr>
+        <td>N_Telefonu:</td>
+        <td><input type="text" th:field="*{n_telefonu}"></td>
+      </tr>
+      <!--Fifth row-->
+      <tr>
+        <td>Data_założenia:</td>
+        <td><input type="text" th:field="*{data_zal}"></td>
+      </tr>
+      <!--Sixth row-->
+      <tr>
+        <td>Barwy:</td>
+        <td><input type="text" th:field="*{barwy}"></td>
+      </tr>
+      <!--Seventh row-->
+      <tr>
+        <td>IdAdresu:</td>
+        <td><input type="text" th:field="*{idAdresu}"></td>
+      </tr>
+
+      <!--Save Button-->
+      <tr>
+        <td colspan="2"><button type="submit">Save</button> </td>
+      </tr>
+    </table>
+  </form>
+
+</div>
+
+
+
+</body>
+</html>

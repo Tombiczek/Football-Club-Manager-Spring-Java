@@ -22,7 +22,8 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
-        registry.addViewController("/view_club").setViewName("view_club");
+        registry.addViewController("/view_club").setViewName("index/view_club");
+        registry.addViewController("/new_club").setViewName("new/new_club");
     }
 
     @Controller
@@ -64,12 +65,19 @@ public class AppController implements WebMvcConfigurer {
     private KlubDAO dao;
 
     @RequestMapping("/view_club")
-    public String showHomeForm(Model model){
+    public String viewHomePage(Model model){
         List<Klub> listKlub = dao.list();
         model.addAttribute("listKlub", listKlub);
-        return "/view_club";
+        return "index/view_club";
     }
 
+
+    @RequestMapping("/new_club")
+    public String showNewForm(Model model){
+        Klub klub = new Klub();
+        model.addAttribute("klub", klub);
+        return "new/new_club";
+    }
 }
 
 

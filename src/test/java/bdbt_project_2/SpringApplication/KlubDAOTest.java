@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +14,7 @@ class KlubDAOTest {
     @BeforeEach
     void setUp() throws Exception {
         DriverManagerDataSource datasource = new DriverManagerDataSource();
-        datasource.setUrl("jdbc:oracle:thin:@194.29.170.4:xe");
+        datasource.setUrl("jdbc:oracle:thin:@194.29.170.4:1521:xe");
         datasource.setUsername("BDBTGRA06");
         datasource.setPassword("BDBTGRA06");
         datasource.setDriverClassName("oracle.jdbc.OracleDriver");
@@ -23,7 +24,8 @@ class KlubDAOTest {
 
     @Test
     void testList(){
-        fail("Not yet implemented");
+        List<Klub> listKlub = dao.list();
+        assertTrue(listKlub.isEmpty());
     }
 
     @Test
