@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Repository
-public class KlubDAO {
+public class AdresDAO {
 
 
     @Autowired
@@ -20,30 +20,31 @@ public class KlubDAO {
 
 
 
-    public KlubDAO(JdbcTemplate jdbcTemplate){
+    public AdresDAO(JdbcTemplate jdbcTemplate){
         super();
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Klub> list(){
-        String sql = "SELECT * FROM KLUBY_PILKARSKIE";
-        List<Klub> listKlub = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Klub.class));
-        return listKlub;
+    public List<Adres> list(){
+        String sql = "SELECT * FROM ADRESY";
+        List<Adres> listAdres;
+        listAdres = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Adres.class));
+        return listAdres;
     }
     /* Insert – wstawianie nowego wiersza do bazy */
-    public void save(Klub klub) {
+    public void save(Adres adres) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("KLUBY_PILKARSKIE").usingColumns("ID_klubu", "nazwa", "email",
-                "numer_telefonu", "data_zalozenia", "barwy", "ID_adresu");
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(klub);
+        insertActor.withTableName("ADRESY").usingColumns("ID_adresu", "miasto", "ulica", "nr_lokalu", "ID_poczty");
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adres);
         insertActor.execute(param);
     }
     /* Read – odczytywanie danych z bazy */
-    public Klub get(int idKlubu) {
+    public Adres get(int ID_adresu) {
         return null;
     }
     /* Update – aktualizacja danych */
-    public void update(Klub klub) {}
+    public void update(Adres adres) {}
     /* Delete – wybrany rekord z danym id */
-    public void delete(int idKlubu) {}
+    public void delete(int ID_adresu) {}
 }
+

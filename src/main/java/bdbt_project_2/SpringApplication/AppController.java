@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -78,6 +79,27 @@ public class AppController implements WebMvcConfigurer {
         model.addAttribute("klub", klub);
         return "new/new_club";
     }
+
+    @RequestMapping(value = "/save_klub", method =RequestMethod.POST)
+    public String save(@ModelAttribute("klub") Klub klub){
+        dao.save(klub);
+
+        return "redirect:/view_club";
+    }
+
+//    @RequestMapping(value = "/save_adres", method =RequestMethod.POST)
+//    public String save(@ModelAttribute("adres") Adres adres){
+//        dao.save(adres);
+//
+//        return "redirect:/view_adres";
+//    }
+//
+//    @RequestMapping(value = "/save_poczta", method =RequestMethod.POST)
+//    public String save(@ModelAttribute("klub") Poczta poczta){
+//        dao.save(poczta);
+//
+//        return "redirect:/view_poczta";
+//    }
 }
 
 

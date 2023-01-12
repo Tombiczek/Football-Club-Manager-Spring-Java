@@ -4,14 +4,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import java.time.*;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class KlubDAOTest {
-    private KlubDAO dao;
+class PocztaDAOTest {
+    private PocztaDAO dao;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -21,20 +19,19 @@ class KlubDAOTest {
         datasource.setPassword("BDBTGRC16");
         datasource.setDriverClassName("oracle.jdbc.OracleDriver");
 
-        dao = new KlubDAO(new JdbcTemplate(datasource));
+        dao = new PocztaDAO(new JdbcTemplate(datasource));
     }
 
     @Test
     void testList(){
-        List<Klub> listKlub = dao.list();
-        assertFalse(listKlub.isEmpty());
+        List<Poczta> listPoczta = dao.list();
+        assertFalse(listPoczta.isEmpty());
     }
 
     @Test
     void save() {
-        Klub klub = new Klub(2, "Essa", "emaial", "6363",
-                LocalDate.of(2020, 1, 8), "czerwony", 2);
-        dao.save(klub);
+        Poczta poczta = new Poczta(8, "gsgsg", "ksksk");
+        dao.save(poczta);
     }
 
     @Test

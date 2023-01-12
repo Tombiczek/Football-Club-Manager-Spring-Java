@@ -1,95 +1,96 @@
 package bdbt_project_2.SpringApplication;
 
+import java.time.*;
+
 public class Klub {
-    private int idKlubu;
+    private int ID_klubu;
     private String nazwa;
     private String email;
-    private String n_telefonu;
-    private String data_zal; // na razie String potem pomyślimy
+    private String numer_telefonu;
+    private LocalDate data_zalozenia; // na razie String potem pomyślimy
     private String barwy;
-    private int idAdresu;
+    private int ID_adresu;
 
 
     public Klub(){}
 
-    public Klub(int idKlubu, String nazwa, String email, String n_telefonu, String data_zal, String barwy, int idAdresu){
-        super();
-        this.idKlubu = idKlubu;
+    public Klub(int ID_klubu, String nazwa, String email, String numer_telefonu, LocalDate data_zalozenia, String barwy, int ID_adresu){
+        this.ID_klubu = ID_klubu;
         this.nazwa = nazwa;
         this.email = email;
-        this.n_telefonu = n_telefonu;
-        this.data_zal = data_zal;
+        this.numer_telefonu = numer_telefonu;
+        this.data_zalozenia = data_zalozenia;
         this.barwy = barwy;
-        this.idAdresu = idAdresu;
+        this.ID_adresu = ID_adresu;
     }
 
-    public int getIdKlubu(){
-        return idKlubu;
+    public int getID_klubu() {
+        return ID_klubu;
     }
 
-    public String getBarwy() {
-        return barwy;
+    public void setID_klubu(int ID_klubu) {
+        this.ID_klubu = ID_klubu;
     }
 
-    public int getIdAdresu() {
-        return idAdresu;
-    }
-
-    public String getNazwa(){
+    public String getNazwa() {
         return nazwa;
-    }
-
-    public String getData_zal() {
-        return data_zal;
-    }
-
-    public String getEmail(){
-        return email;
-    }
-
-    public String getN_telefonu(){
-        return n_telefonu;
-    }
-
-    public void setIdKlubu(int idKlubu) {
-        this.idKlubu = idKlubu;
     }
 
     public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setN_telefonu(String n_telefonu) {
-        this.n_telefonu = n_telefonu;
+    public String getNumer_telefonu() {
+        return numer_telefonu;
     }
 
-    public void setData_zal(String data_zal) {
-        this.data_zal = data_zal;
+    public void setNumer_telefonu(String numer_telefonu) {
+        this.numer_telefonu = numer_telefonu;
+    }
+
+    public LocalDate getDdata_zalozenia() {
+        return data_zalozenia;
+    }
+
+    public void setData_zalozenia(LocalDate data_zalozenia) {
+        this.data_zalozenia = data_zalozenia;
+    }
+
+    public String getBarwy() {
+        return barwy;
     }
 
     public void setBarwy(String barwy) {
         this.barwy = barwy;
     }
 
-    public void setIdAdresu(int idAdresu) {
-        this.idAdresu = idAdresu;
+    public int getID_adresu() {
+        return ID_adresu;
+    }
+
+    public void setID_adresu(int ID_adresu) {
+        this.ID_adresu = ID_adresu;
     }
 
 
     @Override
     public String toString() {
-        return "Klub[" +
-                "idKlubu=" + idKlubu +
+        return "KLUBY_PILKARSKIE[" +
+                "ID_klubu=" + ID_klubu +
                 ", Nazwa='" + nazwa + '\'' +
                 ", Email=" + email +
-                ", N_Telefonu=" + n_telefonu +
-                ", Data założenia=" + data_zal +
+                ", Numer_telefonu=" + numer_telefonu +
+                ", Data założenia=" + data_zalozenia +
                 ", Barwy=" + barwy +
-                ", idAdresu=" + idAdresu +
+                ", idAdresu=" + ID_adresu +
                 "]";
     }
 }
