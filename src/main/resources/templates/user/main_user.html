@@ -2,9 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Main User</title>
+    <title>Main Admin Page</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css} "/>
+    <!--Import Pure CSS files-->
+
+    <link rel="stylesheet" href=
+
+            "https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+
+          integrity=
+                  "sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+
+          crossorigin="anonymous">
 
 </head>
 <body>
@@ -34,142 +44,37 @@
     </div>
 </nav>
 
-<style>
-    @import url("https://fonts.googleapis.com/css?family=Muli:400,700,800&display=swap");
+<div style="text-align: center;">
 
-    .center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
+    <h1 >Football club</h1>
 
-    body {
-        background: #1f1a25;
-        display: flow;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-    }
+    <strong>
 
-    button {
-        border: 0;
-        border-radius: 5px;
-        color: #1f1a25;
-        font-family: "Muli", Arial, sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        background-color: #78e0dc;
-        box-shadow: 0 8px #2dc5bf;
-    }
-    button:hover {
-        cursor: pointer;
-    }
-    button:focus {
-        outline: none;
-    }
-    button:hover, button:focus {
-        background-color: #4fd6d1;
-    }
-    button:active {
-        transform: translateY(4px);
-        box-shadow: 0 3px #2dc5bf;
-    }
+        Choose what you want to do!
 
-    .btn-primary {
-        border: 0;
-        border-radius: 5px;
-        color: #1f1a25;
-        font-family: "Muli", Arial, sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        background-color: #78e0dc;
-        box-shadow: 0 8px #2dc5bf;
-    }
-    .btn-primary:hover {
-        cursor: pointer;
-    }
-    .btn-primary:focus {
-        outline: none;
-    }
-    .btn-primary:hover, .btn-primary:focus {
-        background-color: #4fd6d1;
-    }
-    .btn-primary:active {
-        transform: translateY(4px);
-        box-shadow: 0 3px #2dc5bf;
-    }
+    </strong>
 
-    .btn-secondary {
-        border: 0;
-        border-radius: 5px;
-        color: #1f1a25;
-        font-family: "Muli", Arial, sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        background-color: #b8b3e9;
-        box-shadow: 0 8px #6e64d2;
-    }
-    .btn-secondary:hover {
-        cursor: pointer;
-    }
-    .btn-secondary:focus {
-        outline: none;
-    }
-    .btn-secondary:hover, .btn-secondary:focus {
-        background-color: #938bde;
-    }
-    .btn-secondary:active {
-        transform: translateY(4px);
-        box-shadow: 0 3px #6e64d2;
-    }
+    <br /><br />
 
-    .btn-secondary-custom {
-        border: 0;
-        border-radius: 5px;
-        color: #1f1a25;
-        font-family: "Muli", Arial, sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        background-color: #fde74c;
-        box-shadow: 0 8px #e0c503;
-    }
-    .btn-secondary-custom:hover {
-        cursor: pointer;
-    }
-    .btn-secondary-custom:focus {
-        outline: none;
-    }
-    .btn-secondary-custom:hover, .btn-secondary-custom:focus {
-        background-color: #fce01a;
-    }
-    .btn-secondary-custom:active {
-        transform: translateY(4px);
-        box-shadow: 0 3px #e0c503;
-    }
-</style>
 
-<div class="container">
-    <div class="center">
+
+    <div class="pure-button-group" role="group">
+
+
         <form method="post" th:action="@{/index}">
-            <div class="multi-button">
-                <button class="btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout</button>
-                <a href="/view_club" type="submit" class="btn-secondary">View Club</a>
+            <!-- Active button -->
+            <button class="pure-button pure-button-active" type="submit" onclick="successfullyLogout()"
+                    value="Sign Out">Logout</button>
 
-                <button class="btn-primary">Paste</button>
-            </div>
+            <a class="pure-button " href="/view_club" type="submit">View Club</a>
+
+            <a class="pure-button" href="/view_adres" type="submit">View Addresses</a>
+
+            <a class="pure-button" href="/view_poczta" type="submit">View PostOffice</a>
         </form>
+
     </div>
+
 </div>
 
 
