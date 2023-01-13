@@ -80,7 +80,7 @@ public class AppController implements WebMvcConfigurer {
     private KlubDAO dao_klub;
 
 
-    @RequestMapping("/view_club")
+    @RequestMapping("/")
     public String viewHomePage(Model model){
         List<Klub> listKlub = dao_klub.list();
         model.addAttribute("listKlub", listKlub);
