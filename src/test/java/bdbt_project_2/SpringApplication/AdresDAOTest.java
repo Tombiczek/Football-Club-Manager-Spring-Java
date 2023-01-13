@@ -29,24 +29,35 @@ class AdresDAOTest {
     }
 
     @Test
-    void save() {
+    void testSave() {
         Adres adres = new Adres(10, "gsgs", "swdswd", "10a", 5);
         dao.save(adres);
     }
 
     @Test
-    void get() {
-        fail("Not yet implemented");
+    void testGet() {
+        int id = 1;
+        Adres adres = dao.get(id);
+
+        assertNotNull(adres);
     }
 
     @Test
-    void update() {
-        fail("Not yet implemented");
+    void testUpdate() {
+        Adres adres = new Adres();
+        adres.setID_adresu(12);
+        adres.setMiasto("Krakow");
+        adres.setUlica("Elegancka");
+        adres.setNr_lokalu("22c");
+        adres.setID_poczty(4);
+
+        dao.update(adres);
     }
 
     @Test
-    void delete() {
-        fail("Not yet implemented");
+    void testDelete() {
+        int ID_adresu = 2;
+        dao.delete(ID_adresu);
     }
 }
 

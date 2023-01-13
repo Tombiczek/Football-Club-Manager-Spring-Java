@@ -29,23 +29,32 @@ class PocztaDAOTest {
     }
 
     @Test
-    void save() {
-        Poczta poczta = new Poczta(8, "gsgsg", "ksksk");
+    void testSave() {
+        Poczta poczta = new Poczta(14, "gsgsg", "ksksk");
         dao.save(poczta);
     }
 
     @Test
-    void get() {
-        fail("Not yet implemented");
+    void testGet() {
+        int id = 1;
+        Poczta poczta = dao.get(id);
+
+        assertNotNull(poczta);
     }
 
     @Test
-    void update() {
-        fail("Not yet implemented");
+    void testUpdate() {
+        Poczta poczta = new Poczta();
+        poczta.setID_poczty(15);
+        poczta.setKod_poczty("343434");
+        poczta.setPoczta("SuperPoczta");
+
+        dao.update(poczta);
     }
 
     @Test
-    void delete() {
-        fail("Not yet implemented");
+    void testDelete() {
+        int ID_poczty = 2;
+        dao.delete(ID_poczty);
     }
 }

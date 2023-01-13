@@ -31,24 +31,37 @@ class KlubDAOTest {
     }
 
     @Test
-    void save() {
+    void testSave() {
         Klub klub = new Klub(2, "Essa", "emaial", "6363",
-                LocalDate.of(2020, 1, 8), "czerwony", 2);
+                new Date(2022, Calendar.FEBRUARY, 2), "czerwony", 2);
         dao.save(klub);
     }
 
     @Test
-    void get() {
-        fail("Not yet implemented");
+    void testGet() {
+        int id = 1;
+        Klub klub = dao.get(id);
+
+        assertNotNull(klub);
     }
 
     @Test
-    void update() {
-        fail("Not yet implemented");
+    void testUpdate() {
+        Klub klub = new Klub();
+        klub.setID_klubu(15);
+        klub.setNazwa("Essowina");
+        klub.setEmail("essa@essa.com");
+        klub.setNumer_telefonu("44354343");
+        klub.setData_zalozenia(new Date(2022, 12, 1));
+        klub.setBarwy("Fiolet");
+        klub.setID_adresu(5);
+
+        dao.update(klub);
     }
 
     @Test
-    void delete() {
-        fail("Not yet implemented");
+    void testDelete() {
+        int ID_klubu = 1;
+        dao.delete(ID_klubu);
     }
 }

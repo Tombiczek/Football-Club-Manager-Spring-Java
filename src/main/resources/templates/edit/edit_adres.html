@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Addresses</title>
+</head>
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Edit Addresses</h1>
+    <!-- End Line/ new line -->
+    <br/>
+
+    <!--/* Workaround for bug https://youtrack.jetbrains.com/issue/IDEA-132738 -->
+    <!--@thymesVar id="adres" type="bdbt_project_2.SpringApplication.Adres"-->
+    <!--*/-->
+
+    <form action="#" th:action="@{/update_adres}" th:object="${adres}" method="post">
+        <!-- Table -->
+        <table border = "1" cellpadding="10">
+            <tr>
+                <td>ID Adresu:</td>
+                <td><input type="text" th:field="*{ID_adresu}"></td>
+            </tr>
+            <!--Second row-->
+            <tr>
+                <td>Miasto:</td>
+                <td><input type="text" th:field="*{miasto}"></td>
+            </tr>
+            <!--Third row-->
+            <tr>
+                <td>Ulica:</td>
+                <td><input type="text" th:field="*{ulica}"></td>
+            </tr>
+            <!--Forth row-->
+            <tr>
+                <td>Numer Lokalu:</td>
+                <td><input type="text" th:field="*{nr_lokalu}"></td>
+            </tr>
+            <!--Sixth row-->
+            <tr>
+                <td>ID Poczty:</td>
+                <td><input type="text" th:field="*{ID_poczty}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+
+        </table>
+    </form>
+
+</div>
+
+
+</body>
+</html>

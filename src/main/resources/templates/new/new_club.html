@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>New Club</title>
+  <title>Enter New Club</title>
 </head>
 <body>
 
@@ -12,17 +12,19 @@
   <h1>Enter New Club</h1>
   <!-- End Line/ new line -->
   <br/>
-
-  <form action="#" th:action="@{/save}" th:object="${klub}" method="post">
+  <!--/* Workaround for bug https://youtrack.jetbrains.com/issue/IDEA-132738 -->
+  <!--@thymesVar id="klub" type="bdbt_project_2.SpringApplication.Klub"-->
+  <!--*/-->
+  <form action="#" th:action="@{/save_klub}" th:object="${klub}" method="post">
     <!-- Table -->
     <table border = "1" cellpadding="10">
       <tr>
-        <td>ID_Klubu:</td>
-        <td><input type="text" th:field="*{idKlubu}"></td>
+        <td>ID Klubu:</td>
+        <td><input type="text" th:field="*{ID_klubu}"></td>
       </tr>
       <!--Second row-->
       <tr>
-        <td> Nazwa:</td>
+        <td>Nazwa:</td>
         <td><input type="text" th:field="*{nazwa}"></td>
       </tr>
       <!--Third row-->
@@ -32,13 +34,13 @@
       </tr>
       <!--Forth row-->
       <tr>
-        <td>N_Telefonu:</td>
-        <td><input type="text" th:field="*{n_telefonu}"></td>
+        <td>Numer Telefonu:</td>
+        <td><input type="text" th:field="*{numer_telefonu}"></td>
       </tr>
       <!--Fifth row-->
       <tr>
-        <td>Data_założenia:</td>
-        <td><input type="text" th:field="*{data_zal}"></td>
+        <td>Data Założenia:</td>
+        <td><input type="text" th:field="*{data_zalozenia}"></td>
       </tr>
       <!--Sixth row-->
       <tr>
@@ -47,8 +49,8 @@
       </tr>
       <!--Seventh row-->
       <tr>
-        <td>IdAdresu:</td>
-        <td><input type="text" th:field="*{idAdresu}"></td>
+        <td>ID Adresu:</td>
+        <td><input type="text" th:field="*{ID_adresu}"></td>
       </tr>
 
       <!--Save Button-->

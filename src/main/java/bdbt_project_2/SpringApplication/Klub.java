@@ -1,20 +1,20 @@
 package bdbt_project_2.SpringApplication;
-
-import java.time.*;
+import java.util.Date;
 
 public class Klub {
     private int ID_klubu;
     private String nazwa;
     private String email;
     private String numer_telefonu;
-    private LocalDate data_zalozenia; // na razie String potem pomyślimy
+    private Date data_zalozenia; // na razie String potem pomyślimy
     private String barwy;
     private int ID_adresu;
 
 
     public Klub(){}
 
-    public Klub(int ID_klubu, String nazwa, String email, String numer_telefonu, LocalDate data_zalozenia, String barwy, int ID_adresu){
+    public Klub(int ID_klubu, String nazwa, String email, String numer_telefonu, Date data_zalozenia, String barwy, int ID_adresu){
+        super();
         this.ID_klubu = ID_klubu;
         this.nazwa = nazwa;
         this.email = email;
@@ -56,11 +56,11 @@ public class Klub {
         this.numer_telefonu = numer_telefonu;
     }
 
-    public LocalDate getDdata_zalozenia() {
+    public Date getData_zalozenia() {
         return data_zalozenia;
     }
 
-    public void setData_zalozenia(LocalDate data_zalozenia) {
+    public void setData_zalozenia(Date data_zalozenia) {
         this.data_zalozenia = data_zalozenia;
     }
 

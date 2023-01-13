@@ -19,12 +19,15 @@ public class Adres {
         this.ID_adresu = ID_adresu;
     }
 
-    public String getMiasto() {
-        return Miasto;
-    }
+
 
     public void setMiasto(String miasto) {
         Miasto = miasto;
+    }
+
+
+    public String getMiasto() {
+        return Miasto;
     }
 
     public String getUlica() {
@@ -52,10 +55,11 @@ public class Adres {
     }
 
     public Adres(int ID_adresu, String miasto, String ulica, String nr_lokalu, int ID_poczty){
+        super();
         this.ID_adresu = ID_adresu;
-        Miasto = miasto;
-        Ulica = ulica;
-        Nr_lokalu = nr_lokalu;
+        this.Miasto = miasto;
+        this.Ulica = ulica;
+        this.Nr_lokalu = nr_lokalu;
         this.ID_poczty = ID_poczty;
     }
 

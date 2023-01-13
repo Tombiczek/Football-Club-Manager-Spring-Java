@@ -49,9 +49,9 @@
     body {
         background: #1f1a25;
         display: flow;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
+        align-items: stretch;
+        justify-content: space-evenly;
+        min-height: auto;
     }
 
     button {
@@ -165,7 +165,8 @@
                 <div class="multi-button">
                     <button class="btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout</button>
                     <a href="/view_club" type="submit" class="btn-secondary">View Club</a>
-                    <button class="btn-primary">Paste</button>
+                    <a href="/view_adres" type="submit" class="btn-primary">View Addresses</a>
+                    <a href="/view_poczta" type="submit" class="btn-secondary-custom">View PostOffice</a>
                 </div>
             </form>
     </div>

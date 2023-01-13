@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Offices</title>
+</head>
+<body>
+
+
+<div align="center">
+    <h1>Post Offices</h1>
+
+    <!--/* Workaround for bug https://youtrack.jetbrains.com/issue/IDEA-132738 -->
+    <!--@thymesVar id="poczta" type="bdbt_project_2.SpringApplication.Poczta"-->
+    <!--@thymesVar id="listPoczta" type="java"-->
+    <!--*/-->
+
+    <a href="/new_poczta">Enter New Post Office</a>
+    <!-- Table -->
+    <table border = "1" cellpadding = "10">
+        <!-- Table header -->
+        <thead>
+        <tr>
+            <th>ID Poczty</th>
+            <th>Kod Poczty</th>
+            <th>Poczta</th>
+        </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "Kluby : ${listPoczta}">
+            <td th:text = "${poczta.ID_poczty}">ID Poczty</td>
+            <td th:text = "${poczta.kod_poczty}">Kod Poczty</td>
+            <td th:text = "${poczta.poczta}">Poczta</td>
+            <td>
+                <a th:href="@{'/edit/{ID_poczty}' + ${poczta.ID_poczty}}">Edit</a>
+
+                <a th:href="@{'/delete/' + ${poczta.ID_poczty}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
+
+<!--To jest plik, w którym widzimy tabele i mamy guzik do dodawania pozycji lub edytowania-->
+<!--Jest to opcja tylko dla admina-->
+<!--User może tylko zobaczyć tabelę (ale nie wiem, jak to zrobić jeszcze)-->

@@ -8,11 +8,13 @@
 
 
 <div align="center">
-    <h1>Klub piłkarski</h1>
+    <h1>Football Clubs</h1>
 
-
-
-    <a href="/new_club">Enter new club</a>
+    <!--/* Workaround for bug https://youtrack.jetbrains.com/issue/IDEA-132738 -->
+    <!--@thymesVar id="klub" type="bdbt_project_2.SpringApplication.Klub"-->
+    <!--@thymesVar id="listKlub" type="java"-->
+    <!--*/-->
+    <a href="/new_club">Enter New Club</a>
 <!-- Table -->
     <table border = "1" cellpadding = "10">
   <!-- Table header -->
@@ -29,19 +31,23 @@
           </thead>
           <!-- Table body -->
           <tbody>
-            <tr th:each = "Kluby : ${listKlub}">
-                <td th:text = "${klub.idKlubu}">ID Klubu</td>
-                <td th:text = "${klub.nazwa}">Nazwa</td>
-                <td th:text = "${klub.email}">Email</td>
-                <td th:text = "${klub.n_telefonu}">Numer Telefonu</td>
-                <td th:text = "${klub.data_zal}">Data Założenia</td>
-                <td th:text = "${klub.barwy}">Barwy</td>
-                <td th:text = "${klub.idAdresu}">ID adresu</td>
+            <tr th:each = "kluby : ${listKlub}">
+                <td th:text = "${klub.ID_klubu}">ID_klubu</td>
+                <td th:text = "${klub.nazwa}">nazwa</td>
+                <td th:text = "${klub.email}">email</td>
+                <td th:text = "${klub.numer_telefonu}">numer_telefonu</td>
+                <td th:text = "${klub.data_zalozenia}">data_zalozenia</td>
+                <td th:text = "${klub.barwy}">barwy</td>
+                <td th:text = "${klub.ID_adresu}">ID ID_adresu</td>
+                <td>
+                    <a th:href="@{'/edit/{ID_klubu}' + ${klub.ID_klubu}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${klub.ID_klubu}}">Delete</a>
+                </td>
             </tr>
           </tbody>
     </table>
 </div>
-
 
 </body>
 </html>
