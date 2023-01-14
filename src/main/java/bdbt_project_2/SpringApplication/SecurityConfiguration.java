@@ -21,10 +21,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .password("user")
                 .roles("USER")
                 .and()
-//                .withUser("admin")
-//                .password("admin")
-                .withUser("q") // na potrzeby testowania aplikacji
-                .password("q")
+                .withUser("admin")
+                .password("admin")
                 .roles("ADMIN");
     }
 
@@ -41,6 +39,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/main").authenticated()
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
                 .antMatchers("/main_user").access("hasRole('USER')")
+                .antMatchers("/view_club").authenticated()
+                .antMatchers("/view_adres").authenticated()
+                .antMatchers("/view_poczta").authenticated()
+                .antMatchers("/new_club").access("hasRole('ADMIN')")
+                .antMatchers("/edit_club").access("hasRole('ADMIN')")
+                .antMatchers("/new_adres").access("hasRole('ADMIN')")
+                .antMatchers("/edit_adres").access("hasRole('ADMIN')")
+                .antMatchers("/new_poczta").access("hasRole('ADMIN')")
+                .antMatchers("/edit_poczta").access("hasRole('ADMIN')")
+                .antMatchers("/delete_club/**").access("hasRole('ADMIN')")
+                .antMatchers("/delete_adres/**").access("hasRole('ADMIN')")
+                .antMatchers("/delete_poczta/**").access("hasRole('ADMIN')")
                 .and()
                 .formLogin()
                 .loginPage("/login")

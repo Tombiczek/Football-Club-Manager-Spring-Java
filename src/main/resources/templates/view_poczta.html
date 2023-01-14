@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Post Offices</title>
+</head>
+<body>
+
+<style>
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+    .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/main}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div align="center">
+    <h1>Post Offices</h1>
+
+    <!-- Table body -->
+    <!--/* Workaround for bug https://youtrack.jetbrains.com/issue/IDEA-132738 -->
+    <!--@thymesVar id="poczta" type="bdbt_project_2.SpringApplication.Poczta"-->
+    <!--@thymesVar id="listPoczta" type="List<Poczta>"-->
+    <!--*/-->
+
+    <a href="/new_poczta">Enter New Post Office</a>
+    <!-- Table -->
+    <table border = "1" cellpadding = "10" class="styled-table">
+        <!-- Table header -->
+        <thead>
+        <tr>
+            <th>ID Poczty</th>
+            <th>Kod Poczty</th>
+            <th>Poczta</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "poczta : ${listPoczta}">
+            <td th:text = "${poczta.ID_poczty}">ID Poczty</td>
+            <td th:text = "${poczta.kod_poczty}">Kod Poczty</td>
+            <td th:text = "${poczta.poczta}">Poczta</td>
+            <td>
+                <a th:href="@{/edit_poczta/{ID_poczty}(ID_poczty=${poczta.ID_poczty})}">Edit</a>
+
+                <a th:href="@{/delete_poczta/{ID_poczty}(ID_poczty=${poczta.ID_poczty})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
+
+<!--To jest plik, w którym widzimy tabele i mamy guzik do dodawania pozycji lub edytowania-->
+<!--Jest to opcja tylko dla admina-->
+<!--User może tylko zobaczyć tabelę (ale nie wiem, jak to zrobić jeszcze)-->

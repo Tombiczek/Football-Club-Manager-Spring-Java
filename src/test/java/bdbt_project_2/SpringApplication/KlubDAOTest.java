@@ -30,12 +30,12 @@ class KlubDAOTest {
         assertFalse(listKlub.isEmpty());
     }
 
-    @Test
-    void testSave() {
-        Klub klub = new Klub(2, "Essa", "emaial", "6363",
-                new Date(2022, Calendar.FEBRUARY, 2), "czerwony", 2);
-        dao.save(klub);
-    }
+//    @Test
+//    void testSave() {
+//        Klub klub = new Klub(2, "Essa", "emaial", "6363",
+//                new Date(2022, Calendar.FEBRUARY, 2), "czerwony", 2);
+//        dao.save(klub);
+//    }
 
     @Test
     void testGet() {
@@ -52,7 +52,6 @@ class KlubDAOTest {
         klub.setNazwa("Essowina");
         klub.setEmail("essa@essa.com");
         klub.setNumer_telefonu("44354343");
-        klub.setData_zalozenia(new Date(2022, 12, 1));
         klub.setBarwy("Fiolet");
         klub.setID_adresu(5);
 

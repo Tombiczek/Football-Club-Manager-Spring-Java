@@ -1,4 +1,7 @@
 package bdbt_project_2.SpringApplication;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Klub {
@@ -6,14 +9,14 @@ public class Klub {
     private String nazwa;
     private String email;
     private String numer_telefonu;
-    private Date data_zalozenia; // na razie String potem pomyślimy
+    private String data_zalozenia; // na razie String potem pomyślimy
     private String barwy;
     private int ID_adresu;
 
 
     public Klub(){}
 
-    public Klub(int ID_klubu, String nazwa, String email, String numer_telefonu, Date data_zalozenia, String barwy, int ID_adresu){
+    public Klub(int ID_klubu, String nazwa, String email, String numer_telefonu, String data_zalozenia, String barwy, int ID_adresu){
         super();
         this.ID_klubu = ID_klubu;
         this.nazwa = nazwa;
@@ -56,11 +59,11 @@ public class Klub {
         this.numer_telefonu = numer_telefonu;
     }
 
-    public Date getData_zalozenia() {
+    public String getData_zalozenia() {
         return data_zalozenia;
     }
 
-    public void setData_zalozenia(Date data_zalozenia) {
+    public void setData_zalozenia(String data_zalozenia) {
         this.data_zalozenia = data_zalozenia;
     }
 
@@ -83,12 +86,19 @@ public class Klub {
 
     @Override
     public String toString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        Date date;
+        try {
+            date = formatter.parse(data_zalozenia);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         return "KLUBY_PILKARSKIE[" +
                 "ID_klubu=" + ID_klubu +
                 ", Nazwa='" + nazwa + '\'' +
                 ", Email=" + email +
                 ", Numer_telefonu=" + numer_telefonu +
-                ", Data założenia=" + data_zalozenia +
+                ", Data założenia=" + date +
                 ", Barwy=" + barwy +
                 ", idAdresu=" + ID_adresu +
                 "]";
