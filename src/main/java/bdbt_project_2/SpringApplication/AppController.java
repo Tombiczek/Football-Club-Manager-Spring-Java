@@ -34,6 +34,12 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/view_poczta").setViewName("view_poczta");
         registry.addViewController("/new_poczta").setViewName("new_poczta");
         registry.addViewController("/edit_poczta").setViewName("edit_poczta");
+
+        registry.addViewController("/view_club_user").setViewName("view_club_user");
+        registry.addViewController("/view_adres_user").setViewName("view_adres_user");
+        registry.addViewController("/view_poczta").setViewName("view_poczta");
+
+
     }
 
     @Controller
@@ -81,6 +87,13 @@ public class AppController implements WebMvcConfigurer {
             return "view_club";
         }
 
+        @RequestMapping(value = {"/view_club_user"}, method = RequestMethod.GET)
+        public String viewHomePage_user(Model model) {
+            List<Klub> listKlub = dao_klub.list();
+            model.addAttribute("listKlub", listKlub);
+            return "view_club_user";
+        }
+
 
         @RequestMapping("/new_club")
         public String showNewForm(Model model) {
@@ -126,7 +139,14 @@ public class AppController implements WebMvcConfigurer {
             List<Adres> listAdres = dao_adres.list();
             model.addAttribute("listAdres", listAdres);
             return "view_adres";
-    }
+        }
+
+        @RequestMapping("/view_adres_user")
+        public String viewHomePage_adres_user(Model model){
+            List<Adres> listAdres = dao_adres.list();
+            model.addAttribute("listAdres", listAdres);
+            return "view_adres_user";
+        }
 
         @RequestMapping("/new_adres")
         public String showNewForm_adres(Model model){
@@ -173,6 +193,13 @@ public class AppController implements WebMvcConfigurer {
             List<Poczta> listPoczta = dao_poczta.list();
             model.addAttribute("listPoczta", listPoczta);
             return "view_poczta";
+        }
+
+        @RequestMapping("/view_poczta_user")
+        public String viewHomePage_poczta_user(Model model){
+            List<Poczta> listPoczta = dao_poczta.list();
+            model.addAttribute("listPoczta", listPoczta);
+            return "view_poczta_user";
         }
 
 
