@@ -20,7 +20,7 @@
 # Football Club Manager Spring Application
 
 ## Overview
-This project aimed to create an application utilizing a previously established database.
+This project aimed to create an application utilizing a previously established database. It represents the second part of a larger project that was completed by myself. However, my role did not extensively involve designing the database. My focus was primarily on leveraging the existing database to build and develop the application, showcasing my ability to work with pre-defined structures and integrate them into a functional software solution.
 
 ## Technologies
 Developed with:
@@ -30,7 +30,7 @@ Developed with:
 
 
 ## Project Description
-This project for school helped me learn how to use Spring Boot and combine front-end and back-end technologies. I worked on making an application that connects to a database. Using tools like Maven and Tomcat Server made the work easier. I managed the project by myself using IntelliJ IDEA and GitHub. This project was a simple but real example of how to build an app by bringing different parts of programming together.
+This project for school helped me learn how to use Spring Boot and combine front-end and back-end technologies. I worked on making an application that connects to a database. Using tools like Maven and Tomcat Server made the work easier. This project was a simple but real example of how to build an app by bringing different parts of programming together.
 
 ## Login Screen
 <img src = 'screenshots/index.png'/>
